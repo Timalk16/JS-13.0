@@ -25,9 +25,10 @@ let money,
 let start = function() {
   money = +prompt('Ваш месячный доход?');
 
-  while (!isNumber(money)) {
+  do  {
     money = +prompt('Ваш месячный доход?');
   }
+  while (!isNumber(money));
 };
 
 start();
@@ -39,7 +40,7 @@ showTypeOf(income);
 showTypeOf(deposit);
 
 let expenses1, expenses2;
-let amount1, amount2;
+let amount;
 
 console.log(addExpenses.length);
 
@@ -50,23 +51,23 @@ console.log('Цель заработать ', mission, 'рублей');
 
  console.log(lowerExpenses.split(', '));
 
+
+let expenses = [];
+
 let  getExpensesMonth = function() { // Функция возвращает сумму всех обязательных расходов за месяц
     let sum = 0;
 
     for (let i = 0; i < 2; i++) {
-        if(i === 0) {
-            expenses1 = prompt('Введите обязательную статью расходов?');
-        while (!isNumber(amount1)) {
-                sum += +prompt('Во сколько это обойдется?');
-              }
-        } else if (i === 1) {
-            expenses2 = prompt('Введите обязательную статью расходов?');
-        while (!isNumber(amount2)) {
-                sum += +prompt('Во сколько это обойдется?');
-              }
-        }
+            
+        
+        expenses[i] = prompt('Введите обязательную статью расходов?');
 
+        sum += +prompt('Во сколько это обойдется');
 
+        while (!isNumber(sum)) {
+            sum += +prompt('Во сколько это обойдется');
+          }
+        
 
     }
         console.log(sum);
