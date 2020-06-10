@@ -39,6 +39,7 @@ showTypeOf(income);
 showTypeOf(deposit);
 
 let expenses1, expenses2;
+let amount1, amount2;
 
 console.log(addExpenses.length);
 
@@ -53,12 +54,16 @@ let  getExpensesMonth = function() { // Функция возвращает су
     let sum = 0;
 
     for (let i = 0; i < 2; i++) {
-        sum += +prompt('Во сколько это обойдется?');
-
         if(i === 0) {
             expenses1 = prompt('Введите обязательную статью расходов?');
+        while (!isNumber(amount1)) {
+                sum += +prompt('Во сколько это обойдется?');
+              }
         } else if (i === 1) {
             expenses2 = prompt('Введите обязательную статью расходов?');
+        while (!isNumber(amount2)) {
+                sum += +prompt('Во сколько это обойдется?');
+              }
         }
 
 
@@ -91,9 +96,11 @@ let getTargetMonth = function() {    // Подсчитывает за какой
 
 let targetMonth = getTargetMonth();
 
-console.log('Цель будет достигнута за ', targetMonth , 'месяцев' );
+
 if (targetMonth < 0) {
     console.log('Цель не будет достигнута');
+} else if(targetMonth > 0) {
+    console.log('Цель будет достигнута за ', targetMonth , 'месяцев' );
 }
 
 
