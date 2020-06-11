@@ -65,12 +65,13 @@ let  getExpensesMonth = function() { // Функция возвращает су
 
         while (!isNumber(amount)) {
             amount = +prompt('Во сколько это обойдется');
-          }
+        }
+        sum += amount;
         
 
     }
         console.log(amount);
-        return amount;
+        return sum;
     
 };
 
