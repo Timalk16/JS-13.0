@@ -28,7 +28,7 @@ let start = function() {
   do  {
     money = +prompt('Ваш месячный доход?');
   }
-  while (!isNumber(money));
+   while (!isNumber(money));
 };
 
 start();
@@ -39,7 +39,6 @@ showTypeOf(money);
 showTypeOf(income);
 showTypeOf(deposit);
 
-let expenses1, expenses2;
 let amount;
 
 console.log(addExpenses.length);
@@ -62,16 +61,16 @@ let  getExpensesMonth = function() { // Функция возвращает су
         
         expenses[i] = prompt('Введите обязательную статью расходов?');
 
-        sum += +prompt('Во сколько это обойдется');
+        amount += +prompt('Во сколько это обойдется');
 
-        while (!isNumber(sum)) {
-            sum += +prompt('Во сколько это обойдется');
+        while (!isNumber(amount)) {
+            amount = +prompt('Во сколько это обойдется');
           }
         
 
     }
-        console.log(sum);
-        return sum;
+        console.log(amount);
+        return amount;
     
 };
 
