@@ -83,16 +83,6 @@ appData.budgetMonth = appData.getBudget();
 appData.budgetDay = appData.budgetMonth / 30;
 
 
-    showTypeOf = function(data) {
-        console.log(data, typeof(data));
-    };
-
-//Задание 2
-
-showTypeOf(money);
-showTypeOf(appData.income);
-showTypeOf(appData.deposit);
-
 
 let access = function() {
     if (appData.getTargetMonth() >=0 ) {
@@ -102,11 +92,9 @@ let access = function() {
       }
 };
 
-
-console.log(appData.getStatusIncome(appData.budgetDay));
-console.log('Период равен: ',appData.period, 'месяцев');
 console.log('Расходы за месяц: ' + appData.expensesMonth);
-console.log(appData.getStatusIncome());
+console.log('Период равен: ',appData.period, 'месяцев');
+console.log(appData.getStatusIncome(appData.budgetDay));
 console.log('Наша программа включает в себя данные: ');
 for (let key in appData) {
   console.log(key + ': ' + appData[key]);
