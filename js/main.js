@@ -29,9 +29,7 @@ let start = document.getElementById('start'),
     targetAmount = document.querySelector('.target-amount'),
     periodSelect = document.querySelector('.period-select'),
     incomeItem = document.querySelectorAll('.income-items'),
-    periodAmount = document.querySelector('.period-amount'),
-    inputNumber = document.querySelectorAll('[placeholder="Сумма"]'),   
-    inputText = document.querySelectorAll('[placeholder="Наименование"]');    
+    periodAmount = document.querySelector('.period-amount');
 
 
 let appData = {
@@ -176,12 +174,50 @@ let appData = {
   calcPeriod: function() {
     return this.budgetMonth * periodSelect.value;
   },
-  reset: function(){   
-    location.reload();
-  }
-};
+  reset: function() {   
+    let inputs = document.querySelectorAll('.data [type="text"]');
+    for (let i = 0;  i < inputs.length; i++) {
+      inputs[i].value = '';
+    };
+    appData.start();
+    start.style.display = 'block';
+    cancel.style.display = 'none';
+    inputs.forEach(function(item){
+      item.removeAttribute('disabled', true);   
+    });
+    expensesPlus.removeAttribute('disabled', true);
+    incomePlus.removeAttribute('disabled', true);
+    expensesItems.forEach((element, i) => {  
+      if (i !== 0) {
+        element.remove();
+      }
+    });
+    incomeItem.forEach((element, i) => {  
+      if (i !== 0) {
+        element.remove();
+      }
+    });
+    incomePlus.style.display = 'block';
+    expensesPlus.style.display = 'block';
+    periodSelect.value = 1;
+    periodAmount.textContent = periodSelect.value;
 
-start.setAttribute("disabled", true);
+    this.budget = 0;
+    this.budgetDay = 0;
+    this.budgetMonth = 0;
+    this.income = {};
+    this.incomeMonth = 0;
+    this.addIncome = [];
+    this.expenses = {};
+    this.expensesMonth = 0;
+    this.addExpenses = [];
+    this.deposit = false;
+    this.percentDeposit = 0;
+    this.moneyDeposit = 0;
+  },
+}; 
+
+
 
 start.addEventListener('click', function() {
   appData.start();
@@ -196,6 +232,7 @@ start.addEventListener('click', function() {
 
 });
 
+start.setAttribute("disabled", true);
 cancel.addEventListener('click', appData.reset);
 
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
