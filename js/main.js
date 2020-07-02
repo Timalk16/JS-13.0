@@ -235,6 +235,7 @@ let appData = {
       }
     });
     expensesPlus.style.display = 'block';
+    depositCheck.checked = false;
   }
 };
 
