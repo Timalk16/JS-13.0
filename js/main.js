@@ -9,7 +9,7 @@ const isText = function(str) {
   return !(str === null || str === '' || isNumber(str));
 };
 
-const start = document.getElementById('start'),
+let start = document.getElementById('start'),
     cancel = document.getElementById('cancel'),    
     incomePlus = document.getElementsByTagName('button')[0],
     expensesPlus = document.getElementsByTagName('button')[1],
