@@ -9,7 +9,7 @@ const isText = function(str) {
   return !(str === null || str === '' || isNumber(str));
 };
 
-let start = document.getElementById('start'),
+const start = document.getElementById('start'),
     cancel = document.getElementById('cancel'),    
     incomePlus = document.getElementsByTagName('button')[0],
     expensesPlus = document.getElementsByTagName('button')[1],
@@ -25,11 +25,11 @@ let start = document.getElementById('start'),
     targetMonthValue = document.querySelector('.target_month-value'),
     salaryAmount = document.querySelector('.salary-amount'),
     expensesTitle = document.querySelector('.expenses-title'),
-    expensesItems = document.querySelectorAll('.expenses-items'),
     targetAmount = document.querySelector('.target-amount'),
     periodSelect = document.querySelector('.period-select'),
-    incomeItems = document.querySelectorAll('.income-items'),
     periodAmount = document.querySelector('.period-amount');
+    let expensesItems = document.querySelectorAll('.expenses-items'),
+        incomeItems = document.querySelectorAll('.income-items');
 
 
 
