@@ -222,6 +222,7 @@ reset () {
   this.budgetMonth = 0;
   this.expensesMonth = 0;
 
+  depositPercent.style.display = 'none';
   start.style.display = 'block';
   cancel.style.display = 'none';
   periodSelect.value = 1;
@@ -240,6 +241,7 @@ reset () {
   });
   expensesPlus.style.display = 'block';
   depositCheck.checked = false;
+  this.depositHandler();
 };
 changePercent () {
   const valueSelect = this.value;
