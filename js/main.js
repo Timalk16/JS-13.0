@@ -77,16 +77,23 @@ start () {
   this.showResult();
   disabledInputText();
   
+  if (depositCheck.checked) {
+    if (!(isNumber(depositPercent.value) && depositPercent.value > 0 && depositPercent.value < 100)) {
+      alert('Введите корректное значение процента');
+      return;
+    } 
+}
+
 };
 
 showResult () {
-  budgetMonthValue.value = this.budgetMonth;
+  budgetMonthValue.value = Math.ceil(this.budgetMonth);
   budgetDayValue.value = this.budgetDay;
   expensesMonthValue.value = this.expensesMonth;
   additionalExpensesValue.value = this.addExpenses.join(', ');
   additionalIncomeValue.value = this.addIncome.join(', ');
   targetMonthValue.value = Math.ceil(this.getTargetMonth());
-  incomePeriodValue.value = this.calcPeriodMoney();
+  incomePeriodValue.value = Math.ceil(this.calcPeriodMoney());
 };
 addExpensesBlock () {    
   let cloneExpensesItem = expensesItems[0].cloneNode(true);
